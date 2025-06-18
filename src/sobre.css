@@ -1,0 +1,157 @@
+.sobre-wrapper {
+  background-image: url('https://moewalls.com/wp-content/uploads/2023/02/pokemon-emerald-waterfall-pixel-thumb.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sobre-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+.sobre-content {
+  max-width: 1500px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img-alakazam {
+  display: block;
+  margin: 0 auto -30px auto;
+  width: 360px;
+  height: auto;
+}
+
+.card-sobre {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  border: 2px solid rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8) !important;
+  color: white !important;
+  border-radius: 10px !important;
+  padding: 15px 25px !important;
+  margin-top: 20px !important;
+  text-align: center !important;
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000,
+     0px  2px 4px rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(3px) !important;
+  -webkit-backdrop-filter: blur(3px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  width: 100%;
+  max-width: 1500px;
+}
+
+.card-contato {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  border: 2px solid rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8) !important;
+  color: white !important;
+  border-radius: 10px !important;
+  padding: 15px 25px !important;
+  margin-top: 20px !important;
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000,
+     0px  2px 4px rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(3px) !important;
+  -webkit-backdrop-filter: blur(3px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  min-height: 400px !important;
+  width: 100%;
+  max-width: 1500px;
+}
+
+.card-sobre .card-title,
+.card-contato .card-title {
+  color: white !important;
+  font-weight: bold !important;
+  font-size: 28px !important;
+  margin-bottom: 15px !important;
+}
+
+.card-sobre .card-text {
+  color: white !important;
+  font-size: 18px !important;
+}
+
+.card-contato form {
+  flex-grow: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.card-contato label {
+  font-weight: bold !important;
+  color: #fff !important;
+}
+
+.card-contato .form-control {
+  border: 2px solid rgba(255, 255, 255, 0.5) !important;
+  border-radius: 6px !important;
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  color: white !important;
+}
+
+.card-contato .form-control::placeholder {
+  color: #ccc !important;
+}
+
+.card-contato .btn-primary {
+  background-color: #199123 !important;
+  color: #2d2d2d !important;
+  border: none !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+  transition: background 0.3s ease !important;
+  margin-top: 10px !important;
+}
+
+.card-contato .btn-primary:hover {
+  background-color: rgb(22, 115, 255) !important;
+  color: white !important;
+}
+
+@media (max-width: 768px) {
+  .img-alakazam {
+    width: 260px !important;
+  }
+
+  .card-sobre,
+  .card-contato {
+    font-size: 1rem !important;
+    padding: 10px 15px !important;
+    min-height: auto !important;
+  }
+
+  .card-sobre .card-title,
+  .card-contato .card-title {
+    font-size: 22px !important;
+  }
+}
