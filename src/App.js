@@ -1,13 +1,14 @@
 import './App.css';
+import Aside from './Aside';
+import Main from './Main';
 import Footer from './Footer';
 import React from 'react';
+import Fipe from './Fipe';
+import Email from './Email';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import { Suspense } from 'react';
 import { RingLoader } from 'react-spinners';
-import ErrorPage from './ErrorPage';
-import Sobre from './sobre';
-
 
 function delayImport(factory, delay = 2000) {
   return new Promise((resolve) => {
@@ -18,7 +19,6 @@ function delayImport(factory, delay = 2000) {
 }
 
 const Menu = lazy(() => delayImport(() => import('./Menu'), 2000));
-const Main = lazy(() => delayImport(() => import('./Main'), 2000));
 const Login = lazy(() => delayImport(() => import('./Login'), 3000));
 
 
@@ -42,10 +42,10 @@ function App() {
             <Route path="/footer" element={<Menu> <Footer
               insta="@marcosamiguel"
               whats="32 98401-5080" /> </Menu>} />
-           {/* <Route path="/pokedex" element={<Menu> <Pokedex /> </Menu>} /> */}
-           {/* <Route path="/habitat" element={<Menu> <Habitat /> </Menu>} /> */}
-            <Route path="/sobre" element={<Menu> <Sobre /> </Menu>} /> / 
-            <Route path="*" element={<ErrorPage />} />
+            <Route path="/fipe" element={<Menu> <Fipe /> </Menu>} />
+            <Route path="/email" element={<Menu> <Email /> </Menu>} />
+            <Route path="/cep" element={<Menu><Aside /> </Menu>} />
+            <Route path="*" element={<Menu>  <h1> 404 </h1> </Menu>} />
 
           </Routes>
         </Suspense>

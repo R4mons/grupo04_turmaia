@@ -1,117 +1,65 @@
-import React, { useState } from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import logox from './logo.svg';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
-import { CgPokemon } from "react-icons/cg";
-import emailjs from "@emailjs/browser";
+import { RiLogoutCircleRLine } from 'react-icons/ri';
 
 const Menu = ({ children }) => {
+
     const navigate = useNavigate();
-    const [isHovering, setIsHovering] = useState(false);
-    const [isHoveringBrand, setIsHoveringBrand] = useState(false);
-
-    const enviarEmailAba = async (nomeDaAba) => {
-        const templateParams = {
-            title: "Navegação detectada",
-            name: "Sistema de Navegação",
-            message: `Usuário clicou na aba: ${nomeDaAba}`,
-            reply_to: "arthur.bm222@gmail.com",
-          /*  to_email: "arthur.bm222@gmail.com", */ 
-        };
-
-        try {
-            const response = await emailjs.send(
-                'service_7oholtc',
-                'template_ithi5yl',
-                templateParams,
-                'RDjqAKcYwHX1J5PtN'
-            );
-            console.log(`Email enviado para ${nomeDaAba}:`, response.status, response.text);
-        } catch (error) {
-            console.error('Erro ao enviar email:', error);
-        }
-    };
-
-    const handleClickAba = async (rota, nome) => {
-        await enviarEmailAba(nome);
-        navigate(rota);
-    };
 
     const handleLogout = () => {
-        localStorage.removeItem('auth');
-        alert("Logout realizado com sucesso!");
-        navigate('/');
-    };
+        localStorage.removeItem('auth'); // Remove o item auth do localStorage
+        alert("Logout realizado com sucesso!"); // Alerta de sucesso
+        navigate('/'); // Redireciona para a página de fipe
+    }
 
+    const handleFipe = () => {
+        navigate('/fipe'); // Redireciona para a página de fipe
+    }
     return (
-        <PrivateRoute>
-            <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <>
+
+            <PrivateRoute>
                 <Navbar expand="lg" className="bg-body-tertiary">
                     <Container>
-                        <Navbar.Brand
-                            onClick={() => handleClickAba("/main", "Main")}
-                            onMouseEnter={() => setIsHoveringBrand(true)}
-                            onMouseLeave={() => setIsHoveringBrand(false)}
-                            style={{
-                                cursor: 'pointer',
-                                color: isHoveringBrand ? 'black' : 'black',
-                                textDecoration: isHoveringBrand ? 'underline' : 'none',
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '10px'
-                            }}
-                        >
-                            <img className="App-logo" src={logox} width={60} alt="logo" />
-                            Safari Pokemon
-                        </Navbar.Brand>
-
+                        <Navbar.Brand> <img className='App-logo' src={logox} width={80} alt=" logo " /> Minha App React  </Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">
-                                <Nav.Link onClick={() => handleClickAba("/pokedex", "Pokedex")}>
-                                    Pokedex
-                                </Nav.Link>
-                                <Nav.Link onClick={() => handleClickAba("/habitat", "Habitat")}>
-                                    Habitat
-                                </Nav.Link>
-                                <Nav.Link onClick={() => handleClickAba("/sobre", "Sobre")}>
-                                    Sobre
-                                </Nav.Link>
-
-                                <Nav.Link
-                                    onClick={handleLogout}
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        color: isHovering ? 'red' : 'darkred',
-                                        textDecoration: isHovering ? 'underline' : 'none',
-                                        cursor: 'pointer'
-                                    }}
-                                    onMouseEnter={() => setIsHovering(true)}
-                                    onMouseLeave={() => setIsHovering(false)}
-                                >
-                                    <CgPokemon size={24} style={{ marginRight: '5px' }} />
-                                    Logout
-                                </Nav.Link>
+                                <Nav.Link><Link to="/"> Login </Link> </Nav.Link>
+                                <Nav.Link> <Link to="/cep"> Cep </Link> </Nav.Link>
+                                <Nav.Link onClick={handleFipe}> Fipe</Nav.Link>
+                                <Nav.Link> <Link to="/email"> Email </Link> </Nav.Link>
+                           
+                                <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                                    <NavDropdown.Item> <Link to="/main"> Main </Link> </NavDropdown.Item>
+                                    <NavDropdown.Item> <Link to="/footer"> Footer </Link></NavDropdown.Item>
+                                </NavDropdown>
+                           
+                                <Nav.Link onClick={handleLogout}> <RiLogoutCircleRLine color={"#3c44b1"} size={24} /> </Nav.Link>
+                           
+                           
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
 
-                <div style={{ flex: 1 }}>
-                    {children}
-                </div>
+
+                {children} {/* Renderiza o conteudo do componente filho*/}
+
 
                 <footer className="bg-light text-center text-lg-start">
-                    <div className="text-center p-3" style={{ backgroundColor: "white" }}>
-                        © 2025:
-                        <a className="text-dark" href="https://uniacademia.edu.br" target="_blank" rel="noreferrer">Desenvolvimento Front End</a>
+                    <div className="text-center p-3" style={{ backgroundColor: "lightblue" }}>
+                        © 2025 MM:
+                        <a className="text-dark" href="https://uniacademia.edu.br" target='_blank' rel="noreferrer" > Desenvolvimento Front End </a>
                     </div>
                 </footer>
-            </div>
-        </PrivateRoute>
-    );
+
+            </PrivateRoute>
+
+        </>
+    )
 };
 
 export default Menu;
