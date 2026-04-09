@@ -7,11 +7,11 @@ function Fipe() {
 
     const handleChangeForm = (event) => {
         setForm({ ...form, [event.target.name]: event.target.value })
-        
+
     }
 
     const submit = (event) => {
-       // event.preventDefault();
+
         alert("Dados Gravados com sucesso");
     }
 
@@ -20,20 +20,20 @@ function Fipe() {
             alert("Informe o codigo fipe");
             return;
         }
-        // Remove tudo que não for número
+
         const codigoFipeNum = form.codigoFipe.replace(/\D/g, "");
         if (codigoFipeNum.length < 1) {
             alert("Codigo fipe inválido ++++ ");
             return;
         }
-        // Chama a API da tabela Fipe
+
         axios.get(`https://brasilapi.com.br/api/fipe/preco/v1/${form.codigoFipe}`).then((res) => {
-            const { codigoFipe, valor, marca, modelo, anoModelo, mesReferencia} = 
+            const { codigoFipe, valor, marca, modelo, anoModelo, mesReferencia } =
                 res.data[res.data.length - 1];
             setForm({ "codigoFipe": codigoFipe, "valor": valor, "marca": marca, "modelo": modelo, "anoModelo": anoModelo, "mesReferencia": mesReferencia })
         }).catch((error) => {
-          //  console.log(error);
-            alert(error.response.data.message); 
+
+            alert(error.response.data.message);
         }
         );
     };
@@ -95,12 +95,12 @@ function Fipe() {
                         </Form.Group>
 
                         <Button
-                               variant="success"
-                               size="lg"
-                               className="w-100"
-                               type="submit"
-                            >
-                                Gravar
+                            variant="success"
+                            size="lg"
+                            className="w-100"
+                            type="submit"
+                        >
+                            Gravar
                         </Button>
 
                     </Form>

@@ -10,13 +10,13 @@ function Aside() {
     }
 
     const submit = (event) => {
-       // event.preventDefault();
+
 
         alert("Dados Gravados com sucesso");
     }
 
     const consultarCep = (event) => {
-        // Remove tudo que não for número
+
         const cepNum = form.cep.replace(/\D/g, "");
 
         if (cepNum.length === 8) {
@@ -66,7 +66,7 @@ function Aside() {
                             </Form.Text>
                         </Form.Group>
 
-                        <Form.Group className="d-flex align-items-center mb-3" style={{gap: 5}}>
+                        <Form.Group className="d-flex align-items-center mb-3" style={{ gap: 5 }}>
                             <Form.Label>Nro</Form.Label>
                             <Form.Control
                                 type="text"
@@ -96,12 +96,12 @@ function Aside() {
                         </Form.Group>
 
                         <Button
-                               variant="success"
-                               size="lg"
-                               className="w-100"
-                               type="submit"
-                            >
-                                Gravar
+                            variant="success"
+                            size="lg"
+                            className="w-100"
+                            type="submit"
+                        >
+                            Gravar
                         </Button>
 
                     </Form>

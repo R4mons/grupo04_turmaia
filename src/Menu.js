@@ -1,12 +1,12 @@
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import { RiLogoutCircleRLine } from 'react-icons/ri';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Menu = ({ children }) => {
-
     const navigate = useNavigate();
     const location = useLocation();
+    const locationPath = location.pathname;
 
     const handleLogout = () => {
         localStorage.removeItem('auth');
@@ -25,10 +25,10 @@ const Menu = ({ children }) => {
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">
-                                <Nav.Link as={Link} to="/main" active={location.pathname === "/main"}>
+                                <Nav.Link as={Link} to="/main" active={locationPath === "/main"}>
                                     Home
                                 </Nav.Link>
-                                <Nav.Link as={Link} to="/sobre" active={location.pathname === "/sobre"}>
+                                <Nav.Link as={Link} to="/sobre" active={locationPath === "/sobre"}>
                                     Sobre
                                 </Nav.Link>
                             </Nav>

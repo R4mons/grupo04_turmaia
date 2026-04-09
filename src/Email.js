@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
-import emailjs from "@emailjs/browser";   
+import emailjs from "@emailjs/browser";
 
 function Email() {
-    const [form, setForm] = useState({ nome: "", email: "", mensagem: ""})
+    const [form, setForm] = useState({ nome: "", email: "", mensagem: "" })
 
     const handleChangeForm = (event) => {
         setForm({ ...form, [event.target.name]: event.target.value })
-        
+
     }
 
     const enviarEmail = (event) => {
@@ -16,7 +16,7 @@ function Email() {
             event.preventDefault();
             return;
         }
-      
+
         const templateParams = {
             title: "Email enviado pelo sistema",
             name: form.nome,
@@ -24,9 +24,9 @@ function Email() {
             reply_to: form.email,
             to_name: "Marcos",
         };
-        // Chama a API do emailjs       
 
-        emailjs.send('service_mxwk0ox', 'template_k4wx6cd', templateParams, 'W--o0MxM5bSMRpkJ8') 
+
+        emailjs.send('service_mxwk0ox', 'template_k4wx6cd', templateParams, 'W--o0MxM5bSMRpkJ8')
             .then((response) => {
                 console.log('Email enviado com sucesso!', response.status, response.text);
                 alert("Email enviado com sucesso!");
@@ -35,8 +35,8 @@ function Email() {
                 alert("Erro ao enviar email");
             });
 
-        
-            ;
+
+        ;
 
     };
 
@@ -57,7 +57,7 @@ function Email() {
                                 onInput={handleChangeForm}
                             />
                         </Form.Group>
-                   
+
                         <Form.Group className="meuPadraoFormGroup">
                             <Form.Label>Email</Form.Label>
                             <Form.Control
@@ -71,7 +71,7 @@ function Email() {
 
                         <Form.Group className="meuPadraoFormGroup">
                             <Form.Label>Mensagem</Form.Label>
-                            <Form.Control 
+                            <Form.Control
                                 as="textarea"
                                 placeholder="Informe a mensagem"
                                 name="mensagem"
@@ -82,12 +82,12 @@ function Email() {
 
 
                         <Button
-                               variant="success"
-                               size="lg"
-                               className="w-100"
-                               type="submit"
-                            >
-                                Enviar
+                            variant="success"
+                            size="lg"
+                            className="w-100"
+                            type="submit"
+                        >
+                            Enviar
                         </Button>
 
                     </Form>
