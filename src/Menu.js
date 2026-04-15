@@ -31,6 +31,12 @@ const Menu = ({ children }) => {
                                 <Nav.Link as={Link} to="/sobre" active={locationPath === "/sobre"}>
                                     Sobre
                                 </Nav.Link>
+                                <Nav.Link as={Link} to="/usuarios" active={locationPath === "/usuarios"}>
+                                    Usuários
+                                </Nav.Link>
+                                <Nav.Link as={Link} to="/configuracoes" active={locationPath === "/configuracoes"}>
+                                    Configurações
+                                </Nav.Link>
                             </Nav>
                             <Nav className="ms-auto align-items-center">
                                 <Nav.Link onClick={handleLogout} className="text-white d-flex align-items-center">
