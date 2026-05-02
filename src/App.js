@@ -3,7 +3,7 @@ import React, { lazy, Suspense, useMemo } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { FadeLoader } from 'react-spinners';
 
-const lazyWithDelay = (importFunc, delay = 2000) => {
+const lazyWithDelay = (importFunc, delay = 1000) => {
   return new Promise(resolve => {
     setTimeout(() => resolve(importFunc()), delay);
   });
@@ -37,6 +37,8 @@ function AppRoutes() {
   const Sobre = useMemo(() => lazy(() => lazyWithDelay(() => import('./Sobre'))), [location.pathname]);
   const Usuarios = useMemo(() => lazy(() => lazyWithDelay(() => import('./pages/Usuarios'))), [location.pathname]);
   const Configuracoes = useMemo(() => lazy(() => lazyWithDelay(() => import('./pages/Configuracoes'))), [location.pathname]);
+  const Ddd = useMemo(() => lazy(() => lazyWithDelay(() => import('./Ddd'))), [location.pathname]);
+  const IbgeMunicipios = useMemo(() => lazy(() => lazyWithDelay(() => import('./IbgeMunicipios'))), [location.pathname]);
 
   return (
     <Suspense key={location.pathname} fallback={<LoadingSpinner />}>
@@ -64,6 +66,18 @@ function AppRoutes() {
         <Route path="/configuracoes" element={
           <Menu>
             <Configuracoes />
+          </Menu>
+        } />
+
+        <Route path="/ddd" element={
+          <Menu>
+            <Ddd />
+          </Menu>
+        } />
+
+        <Route path="/ibge" element={
+          <Menu>
+            <IbgeMunicipios />
           </Menu>
         } />
 

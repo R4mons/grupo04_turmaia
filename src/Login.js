@@ -73,6 +73,11 @@ function Login() {
                             </Button>
                         </Form>
                     </Card.Body>
+                    <Card.Footer className="text-center bg-light py-3">
+                        <small className="text-muted fw-semibold d-block mb-1">Dados para teste</small>
+                        <small className="text-muted d-block">Usuário: <strong>admin</strong></small>
+                        <small className="text-muted d-block">Senha: <strong>123</strong></small>
+                    </Card.Footer>
                 </Card>
             </Container>
         </div>

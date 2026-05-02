@@ -1,72 +1,187 @@
-# Getting Started with Create React App
+# Projeto G4 - Consulta de APIs Brasileiras
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descricao do Projeto
 
-## Available Scripts
+Aplicacao web desenvolvida em React que consome duas APIs publicas da BrasilAPI:
 
+- **Consulta de DDD**: O usuario informa um codigo DDD (2 digitos) e a aplicacao retorna o estado correspondente e a lista de cidades associadas a esse DDD.
+- **Consulta de Municipios IBGE**: O usuario informa a sigla de um estado (UF) e a aplicacao retorna a lista completa de municipios daquele estado com seus respectivos codigos IBGE.
 
+O projeto utiliza React, React Bootstrap para estilizacao dos componentes, Axios para requisicoes HTTP e React Router DOM para navegacao entre paginas. A aplicacao possui tratamento de erros para entradas invalidas do usuario e para indisponibilidade dos servicos.
 
-In the project directory, you can run:
+## Instrucoes de Execucao
 
-### `npm start`
+### Pre-requisitos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Node.js (versao 16 ou superior)
+- npm (gerenciador de pacotes do Node.js)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Passo a passo
 
-### `npm test`
+1. Clone o repositorio:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone <url-do-repositorio>
+```
 
-### `npm run build`
+2. Acesse a pasta do projeto:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+cd Projeto G4
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Instale as dependencias:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `npm run eject`
+4. Inicie a aplicacao:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. Acesse no navegador:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+http://localhost:3000
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+A aplicacao sera aberta automaticamente no navegador. Apos o login, utilize o menu de navegacao para acessar as paginas de consulta de DDD e de municipios IBGE.
 
-## Learn More
+## Integrantes do Grupo
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Gabriel Soares
+- Augusto Rocha
+- Isabella Soares
+- Felipe Soares
+- Ramon Saiol
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Exemplos dos JSONs Exibidos
 
-### Code Splitting
+### API de DDD (BrasilAPI)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Endpoint: `https://brasilapi.com.br/api/ddd/v1/{ddd}`
 
-### Analyzing the Bundle Size
+Exemplo de requisicao: `GET https://brasilapi.com.br/api/ddd/v1/21`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Exemplo de resposta:
 
-### Making a Progressive Web App
+```json
+{
+  "state": "RJ",
+  "cities": [
+    "ANGRA DOS REIS",
+    "APERIBE",
+    "ARARUAMA",
+    "AREAL",
+    "ARMACAO DOS BUZIOS",
+    "ARRAIAL DO CABO",
+    "BELFORD ROXO",
+    "BOM JARDIM",
+    "CABO FRIO",
+    "CACHOEIRAS DE MACACU",
+    "CAMBUCI",
+    "CARAPEBUS",
+    "COMENDADOR LEVY GASPARIAN",
+    "CONCEICAO DE MACABU",
+    "CORDEIRO",
+    "DUAS BARRAS",
+    "DUQUE DE CAXIAS",
+    "ENGENHEIRO PAULO DE FRONTIN",
+    "GUAPIMIRIM",
+    "IGUABA GRANDE",
+    "ITABORAI",
+    "ITAGUAI",
+    "ITALVA",
+    "ITAOCARA",
+    "ITAPERUNA",
+    "JAPERI",
+    "LAJE DO MURIAE",
+    "MACAE",
+    "MAGE",
+    "MANGARATIBA",
+    "MARICA",
+    "MENDES",
+    "MESQUITA",
+    "MIGUEL PEREIRA",
+    "MIRACEMA",
+    "NATIVIDADE",
+    "NILOPOLIS",
+    "NITEROI",
+    "NOVA FRIBURGO",
+    "NOVA IGUACU",
+    "PARACAMBI",
+    "PETROPOLIS",
+    "QUEIMADOS",
+    "QUISSAMA",
+    "RIO BONITO",
+    "RIO CLARO",
+    "RIO DAS OSTRAS",
+    "RIO DE JANEIRO",
+    "SAO GONCALO",
+    "SAO JOAO DE MERITI",
+    "SAQUAREMA",
+    "SEROPEDICA",
+    "SILVA JARDIM",
+    "TANGUA",
+    "TERESOPOLIS"
+  ]
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+### API de Municipios IBGE (BrasilAPI)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Endpoint: `https://brasilapi.com.br/api/ibge/municipios/v1/{siglaUF}`
 
-### Deployment
+Exemplo de requisicao: `GET https://brasilapi.com.br/api/ibge/municipios/v1/RJ`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Exemplo de resposta (primeiros registros):
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```json
+[
+  {
+    "nome": "ANGRA DOS REIS",
+    "codigo_ibge": "3300100"
+  },
+  {
+    "nome": "APERIBE",
+    "codigo_ibge": "3300159"
+  },
+  {
+    "nome": "ARARUAMA",
+    "codigo_ibge": "3300209"
+  },
+  {
+    "nome": "AREAL",
+    "codigo_ibge": "3300225"
+  },
+  {
+    "nome": "ARMACAO DOS BUZIOS",
+    "codigo_ibge": "3300233"
+  },
+  {
+    "nome": "ARRAIAL DO CABO",
+    "codigo_ibge": "3300258"
+  },
+  {
+    "nome": "BELFORD ROXO",
+    "codigo_ibge": "3300456"
+  },
+  {
+    "nome": "BOM JARDIM",
+    "codigo_ibge": "3300506"
+  },
+  {
+    "nome": "BOM JESUS DO ITABAPOANA",
+    "codigo_ibge": "3300605"
+  },
+  {
+    "nome": "CABO FRIO",
+    "codigo_ibge": "3300704"
+  }
+]
+```
