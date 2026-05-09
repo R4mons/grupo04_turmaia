@@ -36,7 +36,7 @@ function AppRoutes() {
   const Main = useMemo(() => lazy(() => lazyWithDelay(() => import('./Main'))), [location.pathname]);
   const Sobre = useMemo(() => lazy(() => lazyWithDelay(() => import('./Sobre'))), [location.pathname]);
   const Usuarios = useMemo(() => lazy(() => lazyWithDelay(() => import('./pages/Usuarios'))), [location.pathname]);
-  const Configuracoes = useMemo(() => lazy(() => lazyWithDelay(() => import('./pages/Configuracoes'))), [location.pathname]);
+
   const Ddd = useMemo(() => lazy(() => lazyWithDelay(() => import('./Ddd'))), [location.pathname]);
   const IbgeMunicipios = useMemo(() => lazy(() => lazyWithDelay(() => import('./IbgeMunicipios'))), [location.pathname]);
 
@@ -63,11 +63,7 @@ function AppRoutes() {
           </Menu>
         } />
 
-        <Route path="/configuracoes" element={
-          <Menu>
-            <Configuracoes />
-          </Menu>
-        } />
+
 
         <Route path="/ddd" element={
           <Menu>

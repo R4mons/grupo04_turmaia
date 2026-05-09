@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Button, Card, Form, Alert, Spinner } from "react-bootstrap";
+import { Button, Card, Form, Alert, Spinner, Table } from "react-bootstrap";
 
 function Ddd() {
     const [form, setForm] = useState({ ddd: "" });
@@ -31,6 +31,7 @@ function Ddd() {
             const response = await axios.get(
                 `https://brasilapi.com.br/api/ddd/v1/${dddNum}`
             );
+            console.log("Resposta da API:", response.data);
             setResultado(response.data);
         } catch (error) {
             setErro(
@@ -68,7 +69,6 @@ function Ddd() {
                                 onChange={handleChangeForm}
                             />
                         </Form.Group>
-
                         <Button
                             variant="primary"
                             onClick={consultarDdd}
@@ -106,13 +106,22 @@ function Ddd() {
                                         overflow: "auto",
                                     }}
                                 >
-                                    <ol className="list-group list-group-numbered">
-                                        {resultado.cities?.map((cidade, index) => (
-                                            <li key={index} className="list-group-item">
-                                                {cidade}
-                                            </li>
-                                        ))}
-                                    </ol>
+                                    <Table striped bordered hover size="sm">
+                                        <thead className="table-primary">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Cidade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {resultado.cities?.map((cidade, index) => (
+                                                <tr key={index}>
+                                                    <td>{index + 1}</td>
+                                                    <td>{cidade}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </Table>
                                 </div>
                             </div>
                         </div>

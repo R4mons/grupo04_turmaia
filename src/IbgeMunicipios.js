@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Button, Card, Form, Alert, Spinner, Table } from "react-bootstrap";
-import { FadeLoader } from "react-spinners";
 
 function IbgeMunicipios() {
     const [form, setForm] = useState({ siglaUF: "" });
@@ -92,21 +91,6 @@ function IbgeMunicipios() {
                             )}
                         </Button>
                     </Form>
-
-                    {loading && (
-                        <div className="d-flex align-items-center flex-column justify-content-center text-center py-4">
-                            <FadeLoader
-                                color="#0d6efd"
-                                height={15}
-                                loading
-                                margin={2}
-                                radius={2}
-                                speedMultiplier={1}
-                                width={5}
-                            />
-                            <div className="text-muted pt-3">Carregando municípios...</div>
-                        </div>
-                    )}
 
                     {resultado && (
                         <div className="mt-4">

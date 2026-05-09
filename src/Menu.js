@@ -34,9 +34,7 @@ const Menu = ({ children }) => {
                                 <Nav.Link as={Link} to="/usuarios" active={locationPath === "/usuarios"}>
                                     Usuários
                                 </Nav.Link>
-                                <Nav.Link as={Link} to="/configuracoes" active={locationPath === "/configuracoes"}>
-                                    Configurações
-                                </Nav.Link>
+
                                 <Nav.Link as={Link} to="/ddd" active={locationPath === "/ddd"}>
                                     DDD
                                 </Nav.Link>

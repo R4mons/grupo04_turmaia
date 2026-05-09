@@ -9,8 +9,9 @@ export default function Sobre() {
     const timer = setTimeout(() => {
       setData({
         versao: "1.0.0",
-        descricao: "Sistema simples de login com React, demonstrando controle de estado e roteamento.",
-        autores: "Gabriel Soares, Augusto Rocha, Isabella Soares, Felipe Soares e Ramon Saiol"
+        descricao: "Sistema em React com autenticação simples, roteamento entre páginas e consumo de APIs externas (DDD e IBGE).",
+        autores: "Gabriel Soares, Augusto Rocha, Isabella Soares, Felipe Soares e Ramon Saiol",
+        grupo: "G4"
       });
       setLoading(false);
     }, 1500);
@@ -33,6 +34,7 @@ export default function Sobre() {
               <p><strong>Descrição:</strong> {data.descricao}</p>
               <p><strong>Versão:</strong> {data.versao}</p>
               <p><strong>Autores:</strong> {data.autores}</p>
+              <p><strong>Grupo:</strong> {data.grupo}</p>
             </div>
           )}
         </Card.Body>
