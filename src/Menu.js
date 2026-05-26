@@ -41,6 +41,9 @@ const Menu = ({ children }) => {
                                 <Nav.Link as={Link} to="/ibge" active={locationPath === "/ibge"}>
                                     IBGE
                                 </Nav.Link>
+                                <Nav.Link as={Link} to="/atendimento" active={locationPath === "/atendimento"}>
+                                    Atendimento
+                                </Nav.Link>
                             </Nav>
                             <Nav className="ms-auto align-items-center">
                                 <Nav.Link onClick={handleLogout} className="text-white d-flex align-items-center">

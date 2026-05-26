@@ -39,6 +39,8 @@ function AppRoutes() {
 
   const Ddd = useMemo(() => lazy(() => lazyWithDelay(() => import('./Ddd'))), [location.pathname]);
   const IbgeMunicipios = useMemo(() => lazy(() => lazyWithDelay(() => import('./IbgeMunicipios'))), [location.pathname]);
+  const Pagina404 = useMemo(() => lazy(() => lazyWithDelay(() => import('./Pagina404'))), [location.pathname]);
+  const Atendimento = useMemo(() => lazy(() => lazyWithDelay(() => import('./Atendimento'))), [location.pathname]);
 
   return (
     <Suspense key={location.pathname} fallback={<LoadingSpinner />}>
@@ -77,7 +79,13 @@ function AppRoutes() {
           </Menu>
         } />
 
-        <Route path="*" element={<Login />} />
+        <Route path="/atendimento" element={
+          <Menu>
+            <Atendimento />
+          </Menu>
+        } />
+
+        <Route path="*" element={<Pagina404 />} />
       </Routes>
     </Suspense>
   );
