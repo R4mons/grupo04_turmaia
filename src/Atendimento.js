@@ -3,6 +3,10 @@ import { Button, Card, Form, Alert, Spinner, Container } from "react-bootstrap";
 import emailjs from '@emailjs/browser';
 
 function Atendimento() {
+    const service_key = process.env.REACT_APP_EMAILJS_SERVICE_KEY;
+    const template_key = process.env.REACT_APP_EMAILJS_TEMPLATE_KEY;
+    const user_key = process.env.REACT_APP_EMAILJS_USER_KEY;
+
     const [form, setForm] = useState({ nome: "", email: "" });
     const [loading, setLoading] = useState(false);
     const [status, setStatus] = useState({ type: "", message: "" });
@@ -23,10 +27,10 @@ function Atendimento() {
         };
 
         emailjs.send(
-            'service_k9hpezl',
-            'template_oy2gegn',
+            service_key,
+            template_key,
             templateParams,
-            'rnMNEr4qHjDRHEM4S'
+            user_key
         ).then((response) => {
             setStatus({ type: "success", message: "Sua mensagem foi enviada com sucesso! Entraremos em contato em breve." });
             setForm({ nome: "", email: "" });
